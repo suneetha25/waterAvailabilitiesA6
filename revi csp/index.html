@@ -1,0 +1,232 @@
+<html>
+<head>
+    <title>College Home Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header section */
+        .header {
+            background-color: rgb(238, 196, 144);
+            padding: 20px;
+            height: 20vh;
+            border-bottom: 1px solid black;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .header img {
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        .header div {
+            text-align: left;
+            flex: 1;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .header p {
+            margin: 3px 0;
+            font-size: 0.8em;
+        }
+
+        /* Navigation section */
+        nav {
+            display: flex;
+            justify-content: center; /* Center the nav buttons */
+            background-color: black;
+            padding: 5px 0;
+        }
+
+        nav a {
+            color: white;
+            background-color: black;
+            text-align: center;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            margin: 0 10px; /* Add spacing between the buttons */
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: yellow;
+            color: black;
+        }
+
+        nav a.active {
+            background-color: orange;
+            color: white;
+        }
+
+        /* Main content container */
+        .container {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .container img {
+            width: 100%; /* Set image width to 100% */
+            height: auto; /* Maintain aspect ratio */
+            display: none; /* Hide all images by default */
+        }
+
+        .container img.active {
+            display: block; /* Show images when they are active */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section with logo and text -->
+    <div class="header">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgaVNEey06_aB_-6QRUzNmqc3USgQKbMgGfg&s" alt="Geethanjali Institute Logo">
+        <div>
+            <h1>GEETHANJALI INSTITUTE OF SCIENCE AND TECHNOLOGY</h1>
+            <p>A unit of USHODAYA EDUCATIONAL SOCIETY Approved by AICTE, New Delhi & Permanently Affiliated to JNTU, Ananthapuram</p>
+            <p>NAAC 'A' Grade Accredited Institution, An ISO 9001:2015 certified Institution</p>
+            <p>Recognized under Sec. 2(f) & 12(B) of UGC Act, 1956</p>
+            <p>Address: 3rd Mile Highway, Gangavaram (v), Kovur (Mdi), S.P.S.R. Nellore Dist-524137, Cell: 9912566220</p>
+        </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <nav>
+        <a href="#home" onclick="showSection('home')">Home</a>
+        <a href="#abstract" onclick="showSection('abstract')">Abstract</a>
+        <a href="#existing-system" onclick="showImageGroup('existing-system')">Existing System</a>
+        <a href="#proposed-system" onclick="showImageGroup('proposed-system')">Proposed System</a>
+        <a href="#questionnaire" onclick="showImageGroup('questionnaire')">questionnaire</a>
+        <a href="#survey-data" onclick="showImageGroup('survey-data')">Survey Data</a>
+        <a href="#survey-pictures" onclick="showSurveyPictures()">Survey Pictures</a>
+        <a href="#group-members" onclick="showSection('group-members')">Group Members</a>
+        <a href="#conclusion" onclick="showSection('conclusion')">Conclusion</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="container">
+        <div>
+            <img src="home.png" alt="home" id="home-img" class="active">
+        </div>
+    </section>
+
+    <!-- abstract Section -->
+    <section id="abstract" class="container">
+        <div>
+            <img src="abstract.png" alt="abstract" id="abstract-img">
+        </div>
+    </section>
+
+    <!-- Existing System Section -->
+    <section id="existing-system" class="container image-group">
+        <div>
+        <img src="existing system.png" alt="Existing System" id="existing-system-img">
+        </div>
+    </section>
+
+    <!-- Proposed System Section -->
+    <section id="proposed-system" class="container image-group">
+        <div>
+        <img src="proposed system.png" alt="Proposed System" id="proposed-system-img">
+        </div>
+    </section>
+
+    <!-- questionnaire Section -->
+    <section id="questionnaire" class="container">
+        <div>
+        <img src="questionnaire.png" alt="questionnaire" id="questionnaire-img">
+        </div>
+</section>
+
+    <!-- Survey Data Section -->
+    <section id="survey-data" class="container image-group">
+        <div>
+        <img src="survey data.png" alt="Survey Data" id="survey-data-img">
+        </div>
+    </section>
+
+    <!-- Survey Pictures Section -->
+    <section id="survey-pictures" class="container image-group">
+        <div>
+        <img src="survey picture1.png" alt="Survey Pictures 1" id="survey-pictures1-img">
+        <img src="survey picture2.png" alt="Survey Pictures 2" id="survey-pictures2-img">
+        </div>
+    </section>
+
+    <!-- Group Members Section -->
+    <section id="group-members" class="container">
+        <div>
+            <img src="group members.png" alt="Group Members" id="group-members-img">
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="container">
+        <div>
+            <img src="conclusion.png" alt="Conclusion" id="conclusion-img">
+        </div>
+    </section>
+
+    <script>
+        // Function to hide all images
+        function hideAllImages() {
+            const images = document.querySelectorAll('.container img');
+            images.forEach(img => {
+                img.style.display = 'none'; // Use display:none to hide images
+            });
+        }
+
+        // Function to show only the relevant image
+        function showSection(sectionId) {
+    hideAllImages(); // Hide all images first
+
+    // Show all images in the relevant section
+    const sectionImages = document.querySelectorAll('#' + sectionId + ' img');
+    sectionImages.forEach(img => {
+        img.style.display = 'block'; // Show all images in the section
+    });
+}
+
+        
+
+        // Function to show multiple images for "Existing System", "Proposed System" and "Survey Data"
+        function showImageGroup(groupId) {
+            hideAllImages(); // Hide all other images
+
+            // Show all images in the selected group
+            const groupImages = document.querySelectorAll('#' + groupId + ' img');
+            groupImages.forEach(img => {
+                img.style.display = 'block'; // Show the group of images
+            });
+        }
+
+        // Function to show survey pictures (as multiple images)
+        function showSurveyPictures() {
+            hideAllImages(); // Hide all other images first
+
+            // Show all images in the survey-pictures section
+            const surveyImages = document.querySelectorAll('#survey-pictures img');
+            surveyImages.forEach(img => {
+                img.style.display = 'block'; // Show the survey images
+            });
+        }
+
+        // Initially hide all images except the one for the "home" section
+        window.onload = function() {
+            hideAllImages();
+            document.querySelector('#home img').style.display = 'block'; // Show home image
+        };
+    </script>
+</body>
+</html>
